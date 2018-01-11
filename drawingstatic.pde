@@ -1,3 +1,6 @@
+// static drawing 
+//ahmed zaher
+
 size(1080, 720);
 
 stroke(4, 20, 20, 30);
