@@ -1,36 +1,46 @@
-// static drawing 
-//ahmed zaher
-
+void setup(){
 size(1080, 720);
+colorMode(HSB, 100, 100, 100);
+}
+void draw(){
+float x=mouseX, y=mouseY, thiccness;
 
-stroke(4, 20, 20, 30);
+
+background((x/10)+20, (y/10)+20, 100);
+
 strokeWeight(10);
-fill(0,10,20,20);
-ellipse(330,183,500 , 500);
-fill(255);
-ellipse(320,180,500 , 500);
+point(x,y);
+
 
 strokeWeight(1);
 stroke(0);
 
-ellipse(330, 180, 20, 50);
+fill(x/10,y/10,100);
+noStroke();
+fill((x/10)-20,(y/10)-20,100);
+ellipse(540, 360, 280, 280);
 
-fill(0, 10, 20, 20);
-ellipse(333, 183, 20, 50);
+fill((x/10)-10,(y/10)-10,100);
+ellipse(540, 360, 250, 250);
 
-fill(0);
-rect(280,280,100,20);
+fill((x/10)-18,(y/10)-18,100);
+ellipse(540, 360, 220, 220);
 
-arc(200, 80, 80, 20, 0, PI, OPEN);
-arc(450, 80, 80, 20, 0, PI, OPEN);
+fill((x/10)-6,(y/10)-6,100);
+ellipse(540, 360, 190, 190);
 
-fill(0,10,100);
-ellipse(200,100,20,20);
-fill(0,10,100);
-ellipse(450,100,20,20);
+fill((x/10)-15,(y/10)-15,100);
+ellipse(540, 360, 160, 160);
 
-fill(50);
-textSize(30);
-text("The person who created me has a poor taste in aesthetics ;(",650, 200, 300, 300);
-fill(0,10,30,20);
-text("The person who created me has a poor taste in aesthetics ;(",653, 203, 300, 300);
+fill((x/10)-5,(y/10)-5,100);
+ellipse(540, 360, 100, 100);
+
+fill((x/10)-2,(y/10)-2,100);
+ellipse(540, 360, 130, 130);
+
+
+color((x/5)-20,(y/15)-20,100);
+textSize(50);
+text("R A V E",456, 60, 300, 300);
+
+}
