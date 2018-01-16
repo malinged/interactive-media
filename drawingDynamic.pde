@@ -22,7 +22,7 @@ void setup() {
   size(1028, 720);
   colorMode(HSB, 100);
   background(0, 0, 100);
-  b=100;
+
 }
 
 void draw() {
@@ -48,8 +48,11 @@ void draw() {
 }
 
 void keyPressed() {
+  
+  colorMode(HSB,360,100,100);
+   
   if (key=='c') {
-    background(0, 0, b);
+    background(0, 0, 100);
   }
   
   //size
@@ -60,7 +63,7 @@ void keyPressed() {
     w=w-1;
   }
 //color control
-  colorMode(HSB,360,100,100);
+
   //hue
   if (key== 'h' & c<361) {
     c=c+5;
