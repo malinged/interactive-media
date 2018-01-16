@@ -27,10 +27,22 @@ void setup() {
 
 void draw() {
   fill(30, 20, (b/2+10));
+  textSize(12);
   text("shortcuts:", 20, 20);
-  text("h and j for control over hue, u and I for control over saturation, and n and m for control over brightness.", 20, 40);
-  text("c for clearing the background",20,50);
-  text("1=red, 2=orange, 3=yellow, 4=blue, 5=indigo, 6=violet, 7=white, 8=black", 20, 70);
+  text("h and j for control over hue, u and I for control over saturation, and n and m for control over brightness.", 20, 40, 500, 200);
+  text("c for clearing the background",20,100);
+  text("1=red, 2=orange, 3=yellow, 4=green, 5=blue, 6=indigo, 7=violet, 8=black, white=9", 20,130);
+ 
+ fill(0,0,100);
+ rect(590, 25, 180, 70);
+ fill(30, 20, (b/2+10));
+ text("Current collors Hue Saturation Brightness:",590, 20);
+  text("H",600,40);
+  text(c,620,40);
+  text("S",600,60);
+  text(s,620,60);
+  text("B",600,80);
+  text(br,620,80);
   strokeWeight(w);
   
 }
