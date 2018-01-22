@@ -16,7 +16,7 @@ Create a responsive drawing machine in Processing involving user input. The subj
  
 
 
-float w=1, b, c=0, s, br;
+float w=1, b, c=0, s, br, o=100;
 
 void setup() {
   size(1028, 720);
@@ -26,33 +26,67 @@ void setup() {
 }
 
 void draw() {
+  fill(0,0,90);
+  rect(-1,0,1080, 150);
+  
   fill(30, 20, (b/2+10));
   textSize(12);
-  text("shortcuts:", 20, 20);
-  text("h and j for control over hue, u and I for control over saturation, and n and m for control over brightness.", 20, 40, 500, 200);
-  text("c for clearing the background",20,100);
-  text("1=red, 2=orange, 3=yellow, 4=green, 5=blue, 6=indigo, 7=violet, 8=black, white=9", 20,130);
+  text("shortcuts:", 20, 25);
+  text("h and j for control over hue, u and I for control over saturation, and n and m for control over brightness. '[' to decrease brush size, and ']' to increase. t and r for opacity control.", 20, 45, 500, 200);
+  text("c for changing the background to current color",20,113);
+  text("1=red, 2=orange, 3=yellow, 4=green, 5=blue, 6=indigo, 7=violet, 8=black, white=9", 20,135);
  
- fill(0,0,100);
- rect(590, 25, 180, 70);
+ 
+ strokeWeight(1);
+ rect(-1,0,1080, 10);
+ rect(-1,150,1080, 10);
+ fill(mouseX/10,mouseY/10,100);
+
+noStroke();
+fill((mouseX/10)-20,(mouseY/10)-20,100);
+ellipse(950, 80, 70, 280-60);
+
+fill((mouseX/10)-10,(mouseY/10)-10,100);
+ellipse(950, 80, 70, 250-60);
+
+fill((mouseX/10)-18,(mouseY/10)-18,100);
+ellipse(950, 80, 70, 220-60);
+
+fill((mouseX/10)-6,(mouseY/10)-6,100);
+ellipse(950, 80, 70, 190-60);
+
+fill((mouseX/10)-15,(mouseY/10)-15,100);
+ellipse(950, 80, 70, 160-60);
+
+stroke(1);
+  fill(0,0,100);
+  
+textSize(18);  
+text("Draw", 927, 90);
+textSize(12);  
+
+  rect(590, 30, 180, 90);
+ 
  fill(30, 20, (b/2+10));
- text("Current collors Hue Saturation Brightness:",590, 20);
-  text("H",600,40);
-  text(c,620,40);
-  text("S",600,60);
-  text(s,620,60);
-  text("B",600,80);
-  text(br,620,80);
+ text("Current collors Hue Saturation Brightness:",590, 25);
+  text("H",600,50);
+  text(c,620,50);
+  text("S",600,70);
+  text(s,620,70);
+  text("B",600,90);
+  text(br,620,90);
+  text("A",600,110);
+  text(o,620,110);
   strokeWeight(w);
   
 }
 
 void keyPressed() {
   
-  colorMode(HSB,360,100,100);
+  colorMode(HSB,360,100,100, 100);
    
   if (key=='c') {
-    background(0, 0, 100);
+    background(c, s, br);
   }
   
   //size
@@ -85,6 +119,13 @@ void keyPressed() {
   if (key== 'm' & br>0) {
     br=br-5;
   };
+//alpha
+  if(key=='t' & o<101){
+    o=o+5;
+  }
+  if(key=='r' & o>0){
+    o=o-5;
+  }
 //color control options
   //red
   if(key=='1'){
@@ -147,7 +188,7 @@ void keyPressed() {
 }
 
 void mouseDragged() {
-  stroke(c, s, br);
+  stroke(c, s, br, o);
   line(pmouseX, pmouseY, mouseX, mouseY);
-  println(c,s,br);
+  println(c,s,br,o);
 }
