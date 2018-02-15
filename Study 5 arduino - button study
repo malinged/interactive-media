@@ -1,0 +1,34 @@
+int button =7;
+int led=13;
+boolean on=false;
+int buttonOnOrOff=0;
+
+
+void setup() {
+  // put your setup code here, to run once:
+pinMode(led, OUTPUT);
+pinMode(button, INPUT);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+buttonOnOrOff= digitalRead(button);
+
+//button input
+  if(buttonOnOrOff == HIGH){
+    if(on==true){
+      on=false;
+      }else{
+        on=true;
+      }
+  }
+//LED output
+  if(on==true){
+    digitalWrite(led, HIGH);   
+    }else{
+    digitalWrite(led, LOW);
+  }             
+
+  delay(500);
+
+}
